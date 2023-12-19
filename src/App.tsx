@@ -1,4 +1,4 @@
-import { Button } from '@nextui-org/react';
+import { Button, Code } from '@nextui-org/react';
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
         Hello world!
       </h1>
       <Button color="primary">Button</Button>
+      <Code color="success">npm install @nextui-org/react</Code>
     </>
   );
 }
