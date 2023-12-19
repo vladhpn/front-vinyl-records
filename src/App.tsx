@@ -8,6 +8,7 @@ function App() {
       </h1>
       <Button color="primary">Button</Button>
       <Code color="success">npm install @nextui-org/react</Code>
+      <p>AHASDSADASDAS</p>
     </>
   );
 }
