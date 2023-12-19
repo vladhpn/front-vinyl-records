@@ -1,4 +1,4 @@
-import { Button, Code } from '@nextui-org/react';
+import { Button, CircularProgress, Code } from '@nextui-org/react';
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       </h1>
       <Button color="primary">Button</Button>
       <Code color="success">npm install @nextui-org/react</Code>
+      <CircularProgress aria-label="Loading..." />
     </>
   );
 }
