@@ -22,6 +22,7 @@ export default {
     fontFamily: {
       sans: 'Inter, sans-serif',
     },
+
     extend: {
       colors: {
         lightBlue: '#3498DB',
