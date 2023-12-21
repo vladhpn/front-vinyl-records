@@ -19,10 +19,6 @@ export default {
         '2xl': '80px',
       },
     },
-    fontFamily: {
-      sans: 'Inter, sans-serif',
-    },
-
     extend: {
       colors: {
         lightBlue: '#3498DB',

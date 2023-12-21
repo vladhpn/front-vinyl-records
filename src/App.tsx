@@ -1,11 +1,7 @@
-import { Button } from '@nextui-org/react';
+import { RegistrationPage } from './pages';
 
 function App() {
-  return (
-    <>
-      <Button color="primary">Button</Button>
-    </>
-  );
+  return <RegistrationPage />;
 }
 
 export default App;
