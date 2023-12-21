@@ -1,20 +1,27 @@
-import { Input } from "@nextui-org/react";
-import { EyeFilledIcon, EyeSlashFilledIcon } from "..";
-import { FC } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Input } from '@nextui-org/react';
+import { FC } from 'react';
+import { Path, UseFormRegister } from 'react-hook-form';
+import { EyeFilledIcon, EyeSlashFilledIcon } from '..';
 
 type PasswodrInputProps = {
   isVisible: boolean;
   toggleVisibility: React.MouseEventHandler<HTMLButtonElement>;
+  label: Path<any>;
+  register: UseFormRegister<any>;
 };
 
 export const PasswordInput: FC<PasswodrInputProps> = ({
   isVisible,
   toggleVisibility,
+  label,
+  register,
 }) => {
   return (
     <Input
+      {...register(label)}
       className="mb-5"
-      label="Password"
+      label={label}
       placeholder="Enter your password"
       size="lg"
       isRequired
