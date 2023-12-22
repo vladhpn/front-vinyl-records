@@ -1,30 +1,53 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input } from '@nextui-org/react';
 import { FC } from 'react';
-import { Path, UseFormRegister } from 'react-hook-form';
 import { EyeFilledIcon, EyeSlashFilledIcon } from '..';
 
 type PasswodrInputProps = {
   isVisible: boolean;
   toggleVisibility: React.MouseEventHandler<HTMLButtonElement>;
-  label: Path<any>;
-  register: UseFormRegister<any>;
+  props: {
+    value: string;
+    label: string;
+    isEmpty?: boolean;
+    minLength?: boolean;
+    isEmail?: boolean;
+    isDirty: boolean;
+    onChange: (e: string) => void;
+    onBlur: (
+      e:
+        | React.FocusEvent<HTMLInputElement, Element>
+        | React.FocusEvent<Element, Element>,
+    ) => void;
+  };
 };
 
 export const PasswordInput: FC<PasswodrInputProps> = ({
   isVisible,
   toggleVisibility,
-  label,
-  register,
+  props,
 }) => {
   return (
     <Input
-      {...register(label)}
+      value={props.value}
+      label={props.label}
+      variant="bordered"
+      isInvalid={
+        (props.isDirty && props.isEmpty) || (props.isDirty && props.minLength)
+      }
+      color={
+        (props.isDirty && props.isEmpty) || (props.isDirty && props.minLength)
+          ? 'danger'
+          : 'success'
+      }
+      errorMessage={
+        (props.isDirty && props.isEmpty) || (props.isDirty && props.minLength)
+          ? 'Min length 5 symbols'
+          : ''
+      }
+      onValueChange={(e) => props.onChange(e)}
+      onBlur={(e) => props.onBlur(e)}
       className="mb-5"
-      label={label}
-      placeholder="Enter your password"
       size="lg"
-      isRequired
       type={isVisible ? 'text' : 'password'}
       endContent={
         <button
