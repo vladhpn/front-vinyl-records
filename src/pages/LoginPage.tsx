@@ -31,7 +31,7 @@ export const LoginPage = () => {
   return (
     <div className="flex h-screen font-serif">
       <div className="h-screen w-3/6 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
-      <div className="flex w-3/6 flex-col flex-col justify-center px-44">
+      <div className="flex w-3/6 flex-col justify-center px-44">
         <h2 className="mb-5 text-3xl font-bold">Login in</h2>
         <Input
           value={email.value}
