@@ -9,6 +9,9 @@ export default {
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+    },
     container: {
       center: true,
       padding: {
@@ -23,9 +26,10 @@ export default {
       colors: {
         lightBlue: '#3498DB',
         darkBlue: '#24478F',
-        red: '#E74C3C',
-        green: '#2ECC71',
+        tomatoRed: '#E74C3C',
+        emeraldGreen: '#2ECC71',
         lightGray: '#EDEDED',
+        textColor: '#333333',
       },
     },
   },
