@@ -1,6 +1,6 @@
 import { Button, Input, useDisclosure } from '@nextui-org/react';
 import { Logo } from '../Logo';
-import { MyModal } from '../MyModal';
+import { CustomModal } from '../CustomModal';
 import { FilterIcon, SearchIcon, UserIcon } from '../iconComponents';
 
 export const Header = () => {
@@ -32,7 +32,7 @@ export const Header = () => {
         />
       </div>
       <div className="flex w-36 items-center justify-end gap-x-1">
-        <MyModal isOpen={isOpen} onOpenChange={onOpenChange} />
+        <CustomModal isOpen={isOpen} onOpenChange={onOpenChange} />
         <Button
           onPress={onOpen}
           radius="full"

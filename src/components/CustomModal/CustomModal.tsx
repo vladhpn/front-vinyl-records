@@ -6,13 +6,14 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@nextui-org/react';
+import { FC } from 'react';
 
-type MyModalProps = {
+type CustomModalProps = {
   isOpen: boolean;
   onOpenChange: () => void;
 };
 
-export const MyModal: React.FC<MyModalProps> = ({ isOpen, onOpenChange }) => {
+export const CustomModal: FC<CustomModalProps> = ({ isOpen, onOpenChange }) => {
   return (
     <>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
