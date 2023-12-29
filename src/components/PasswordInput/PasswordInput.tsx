@@ -1,8 +1,8 @@
 import { Input } from '@nextui-org/react';
 import { FC } from 'react';
-import { EyeFilledIcon, EyeSlashFilledIcon } from '..';
+import { EyeFilledIcon, EyeSlashFilledIcon } from '../iconComponents';
 
-type PasswodrInputProps = {
+type PasswordInputProps = {
   isVisible: boolean;
   toggleVisibility: React.MouseEventHandler<HTMLButtonElement>;
   props: {
@@ -21,7 +21,7 @@ type PasswodrInputProps = {
   };
 };
 
-export const PasswordInput: FC<PasswodrInputProps> = ({
+export const PasswordInput: FC<PasswordInputProps> = ({
   isVisible,
   toggleVisibility,
   props,

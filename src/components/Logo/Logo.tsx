@@ -1,10 +1,10 @@
-import { Link } from '@nextui-org/react';
+import { Link } from 'react-router-dom';
 import { LogoIcon } from '../iconComponents/LogoIcon';
 
 export const Logo = () => {
   return (
     <div className="logo">
-      <Link className=" font-extrabold text-darkBlue" href="#">
+      <Link to="/" className=" flex items-center font-extrabold text-darkBlue">
         <LogoIcon />
         <span className="pl-1 text-lg">vinylrecords</span>
       </Link>

@@ -1,12 +1,44 @@
-import { Button, Input, useDisclosure } from '@nextui-org/react';
-import { Logo } from '../Logo';
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  Input,
+  useDisclosure,
+} from '@nextui-org/react';
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useHeaderVisibility } from '../../hooks';
 import { CustomModal } from '../CustomModal';
+import { Logo } from '../Logo';
 import { FilterIcon, SearchIcon, UserIcon } from '../iconComponents';
 
 export const Header = () => {
+  const navigate = useNavigate();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  return (
-    <div className="flex h-20 items-center justify-between">
+  const { showHeader, show, hide } = useHeaderVisibility();
+
+  const handleLoginClick = () => {
+    hide();
+    navigate('/login');
+  };
+
+  const handleRegisterClick = () => {
+    hide();
+    navigate('/register');
+  };
+
+  useEffect(() => {
+    if (location.pathname === '/login' || location.pathname === '/register') {
+      hide();
+    } else {
+      show();
+    }
+  }, [hide, show]);
+
+  return showHeader ? (
+    <div className="container flex h-20 items-center justify-between">
       <Logo />
       <div className="flex  items-center justify-center gap-4">
         <Input
@@ -41,14 +73,30 @@ export const Header = () => {
           aria-label="Filter">
           <FilterIcon />
         </Button>
-        <Button
-          radius="full"
-          isIconOnly
-          className="bg-transparent"
-          aria-label="Filter">
-          <UserIcon />
-        </Button>
+        <Dropdown backdrop="opaque" placement="bottom-end">
+          <DropdownTrigger>
+            <Button
+              radius="full"
+              isIconOnly
+              className="bg-transparent"
+              aria-label="Filter">
+              <UserIcon />
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Link Actions">
+            <DropdownItem textValue="Register" onPress={handleRegisterClick}>
+              <Link className="block" to="/register">
+                Register
+              </Link>
+            </DropdownItem>
+            <DropdownItem textValue="Login" onPress={handleLoginClick}>
+              <Link className="block" to="/login">
+                Login
+              </Link>
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
       </div>
     </div>
-  );
+  ) : null;
 };

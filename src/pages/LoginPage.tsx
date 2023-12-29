@@ -1,9 +1,10 @@
 import { Button, Input } from '@nextui-org/react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PasswordInput } from '../components';
 import { useInput } from '../hooks';
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const email = useInput('', 'Email', {
@@ -29,7 +30,7 @@ export const LoginPage = () => {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
-    <div className="flex h-screen font-serif">
+    <div className="font-serif flex h-screen">
       <div className="h-screen w-3/6 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
       <div className="flex w-3/6 flex-col justify-center px-44">
         <h2 className="mb-5 text-3xl font-bold">Login in</h2>
@@ -51,16 +52,28 @@ export const LoginPage = () => {
           isVisible={isVisible}
           toggleVisibility={toggleVisibility}
         />
-        <Button
-          isDisabled={!password.isValid || !email.isValid}
-          className="w-36"
-          color="primary"
-          variant="ghost"
-          type="submit"
-          onClick={onSubmit}>
-          Login
-        </Button>
+        <div className="flex gap-5">
+          <Button
+            isDisabled={!password.isValid || !email.isValid}
+            className="w-36"
+            color="primary"
+            variant="ghost"
+            type="submit"
+            onClick={onSubmit}>
+            Login
+          </Button>
+          <Button
+            to="/"
+            href="https://github.com/nextui-org/nextui"
+            as={Link}
+            color="primary"
+            variant="solid">
+            To main
+          </Button>
+        </div>
       </div>
     </div>
   );
 };
+
+export default LoginPage;
