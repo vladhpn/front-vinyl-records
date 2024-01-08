@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 const RegistrationPage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
+  //
+
   const toggleVisibility = () => setIsVisible(!isVisible);
   return (
     <div className="font-serif flex h-screen">
