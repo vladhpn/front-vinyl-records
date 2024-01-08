@@ -1,11 +1,12 @@
-import { Button, Input } from '@nextui-org/react';
+import { Button, Input, Link } from '@nextui-org/react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PasswordInput } from '../components';
 import { useInput } from '../hooks';
 
 const LoginPage = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   const email = useInput('', 'Email', {
     isEmpty: true,
@@ -41,7 +42,7 @@ const LoginPage = () => {
           variant="bordered"
           isInvalid={isEmailValid}
           color={isEmailValid ? 'danger' : 'success'}
-          errorMessage={isEmailValid ? 'Please enter a valid email' : ''}
+          errorMessage={isEmailValid && 'Please enter a valid email'}
           onValueChange={(e) => email.onChange(e)}
           onBlur={(e) => email.onBlur(e)}
           className="mb-5"
@@ -62,15 +63,13 @@ const LoginPage = () => {
             onClick={onSubmit}>
             Login
           </Button>
-          <Button
-            to="/"
-            href="https://github.com/nextui-org/nextui"
-            as={Link}
-            color="primary"
-            variant="solid">
+          <Button color="primary" variant="solid" onClick={() => navigate('/')}>
             To main
           </Button>
         </div>
+        <Link className="mt-4" href="/register">
+          I don't have an account
+        </Link>
       </div>
     </div>
   );

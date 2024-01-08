@@ -15,9 +15,3 @@ export const UserIcon = () => {
     </svg>
   );
 };
-
-
-
-
-
-
