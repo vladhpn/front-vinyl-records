@@ -1,11 +1,39 @@
-import { Button, Input } from '@nextui-org/react';
+import { Button, Input, Link } from '@nextui-org/react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { PasswordInput } from '../components';
+import { useInput } from '../hooks';
 
 const RegistrationPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const navigate = useNavigate();
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const email = useInput('', 'Email', {
+    isEmpty: true,
+    minLength: 3,
+    isEmail: true,
+  });
+
+  const name = useInput('', 'Name', {
+    isEmpty: true,
+    minLength: 3,
+  });
+
+  const password = useInput('', 'Password', {
+    isEmpty: true,
+    minLength: 6,
+  });
+
+  const isEmailValid =
+    (email.isDirty && email.isEmpty) || (email.isDirty && email.isEmail);
+
+  const toggleVisibilityPassword = () =>
+    setIsVisiblePassword(!isVisiblePassword);
+
+  const onSubmit = () => {
+    console.log(password.value, email.value, name.value);
+  };
+
   return (
     <div className="font-serif flex h-screen">
       <div className="h-screen w-3/6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
@@ -13,39 +41,55 @@ const RegistrationPage = () => {
         <h2 className="mb-5 text-3xl font-bold">Create an account</h2>
 
         <Input
-          className="mb-5"
-          type="name"
-          label="Name"
-          placeholder="Enter your name"
-          size="lg"
-          isRequired
-        />
-        <Input
-          className="mb-5"
+          value={name.value}
           type="email"
-          label="Email"
-          placeholder="Enter your email"
-          size="lg"
-          isRequired
+          label={name.label}
+          variant="bordered"
+          isInvalid={name.isDirty && name.isEmpty}
+          color={name.isDirty && name.isEmpty ? 'danger' : 'success'}
+          errorMessage={name.isDirty && name.isEmpty && 'Minimum 3 symbols'}
+          onValueChange={(e) => name.onChange(e)}
+          onBlur={(e) => name.onBlur(e)}
+          className="mb-5"
         />
 
-        {/* <PasswordInput
-          isVisible={isVisible}
-          toggleVisibility={toggleVisibility}
-        /> */}
+        <Input
+          value={email.value}
+          type="email"
+          label={email.label}
+          variant="bordered"
+          isInvalid={isEmailValid}
+          color={isEmailValid ? 'danger' : 'success'}
+          errorMessage={isEmailValid && 'Please enter a valid email'}
+          onValueChange={(e) => email.onChange(e)}
+          onBlur={(e) => email.onBlur(e)}
+          className="mb-5"
+        />
+
+        <PasswordInput
+          props={password}
+          isVisible={isVisiblePassword}
+          toggleVisibility={toggleVisibilityPassword}
+        />
+
         <div className="flex gap-5">
-          <Button className="w-36" color="primary" variant="ghost">
+          <Button
+            isDisabled={!password.isValid || !email.isValid || !name.isValid}
+            className="w-36"
+            color="primary"
+            variant="ghost"
+            type="submit"
+            onClick={onSubmit}>
             Create an account
           </Button>
-          <Button
-            to="/"
-            href="https://github.com/nextui-org/nextui"
-            as={Link}
-            color="primary"
-            variant="solid">
+
+          <Button color="primary" variant="solid" onClick={() => navigate('/')}>
             To main
           </Button>
         </div>
+        <Link className="mt-4" href="/login">
+          I have an account
+        </Link>
       </div>
     </div>
   );
