@@ -19,8 +19,8 @@ export const Header = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <>
-      <div className="container flex h-20 items-center justify-between">
+    <div className="container fixed left-0 right-0 z-20 h-20 bg-white py-5 ">
+      <div className="flex items-center justify-between pb-2.5">
         <Logo />
         <div className="flex  items-center justify-center gap-4">
           <Input
@@ -81,6 +81,6 @@ export const Header = () => {
         </div>
       </div>
       <Divider orientation="horizontal" />
-    </>
+    </div>
   );
 };
