@@ -29,10 +29,6 @@ const RegistrationPage = () => {
           isRequired
         />
 
-        {/* <PasswordInput
-          isVisible={isVisible}
-          toggleVisibility={toggleVisibility}
-        /> */}
         <div className="flex gap-5">
           <Button className="w-36" color="primary" variant="ghost">
             Create an account
