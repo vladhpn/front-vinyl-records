@@ -15,6 +15,3 @@ export const FilterIcon = () => {
     </svg>
   );
 };
-
-
-
