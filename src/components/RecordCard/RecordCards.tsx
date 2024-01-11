@@ -30,7 +30,7 @@ export const RecordCard: FC<RecordCardProps> = ({
         </CardBody>
         <CardFooter className="block">
           <h4 className="text-lg text-black">
-            {album.length > 32 ? album.substring(0, 32) + '...' : album}
+            {album.length > 28 ? album.substring(0, 28) + '...' : album}
           </h4>
           <h5 className="text-base text-gray-600">{artist}</h5>
           <p className="text-base text-black">${price}</p>
