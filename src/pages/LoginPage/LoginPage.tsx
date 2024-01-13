@@ -1,8 +1,8 @@
 import { Button, Input, Link } from '@nextui-org/react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PasswordInput } from '../components';
-import { useInput } from '../hooks';
+import { PasswordInput } from '../../components';
+import { useInput } from '../../hooks';
 
 const LoginPage = () => {
   const [isVisible, setIsVisible] = useState(false);

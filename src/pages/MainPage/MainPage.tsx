@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import { RecordCard } from '../components/RecordCard';
-import { allCardsList } from '../utils/mocData/allCardsList';
+import { RecordCard } from '../../components/RecordCard';
+import { allCardsList } from '../../utils/mocData/allCardsList';
 
 const MainPage = () => {
   const location = useLocation();

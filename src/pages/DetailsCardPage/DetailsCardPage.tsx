@@ -1,9 +1,9 @@
 import { Button, Chip, Divider, Image } from '@nextui-org/react';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import NotFoundPage from '../../pages/NotFoundPage';
 import { allCardsList } from '../../utils/mocData/allCardsList';
 import { DetailsCard } from './types';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 const DetailsCardPage = () => {
   const { id } = useParams();
