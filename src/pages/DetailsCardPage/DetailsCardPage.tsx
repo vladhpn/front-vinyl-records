@@ -2,10 +2,10 @@ import { Button, Chip, Divider, Image } from '@nextui-org/react';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { allCardsList } from '../../utils/mocData/allCardsList';
+import { NotFoundPage } from '../NotFoundPage';
 import { DetailsCard } from './types';
-import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
-const DetailsCardPage = () => {
+export const DetailsCardPage = () => {
   const { id } = useParams();
   const [card, setCard] = useState<DetailsCard | null>(null);
 
@@ -108,5 +108,3 @@ const DetailsCardPage = () => {
     </div>
   );
 };
-
-export default DetailsCardPage;

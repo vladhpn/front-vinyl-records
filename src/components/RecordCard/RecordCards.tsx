@@ -1,13 +1,6 @@
 import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
 import { FC } from 'react';
-
-type RecordCardProps = {
-  id: string;
-  artist: string;
-  images: string;
-  album: string;
-  price: string;
-};
+import { RecordCardProps } from './type';
 
 export const RecordCard: FC<RecordCardProps> = ({
   id,

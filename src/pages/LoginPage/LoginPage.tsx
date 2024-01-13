@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { PasswordInput } from '../../components';
 import { useInput } from '../../hooks';
 
-const LoginPage = () => {
+export const LoginPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -74,5 +74,3 @@ const LoginPage = () => {
     </div>
   );
 };
-
-export default LoginPage;
