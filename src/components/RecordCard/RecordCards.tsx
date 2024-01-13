@@ -1,13 +1,6 @@
 import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
 import { FC } from 'react';
-
-type RecordCardProps = {
-  id: string;
-  artist: string;
-  images: string;
-  album: string;
-  price: string;
-};
+import { RecordCardProps } from './type';
 
 export const RecordCard: FC<RecordCardProps> = ({
   id,
@@ -30,7 +23,7 @@ export const RecordCard: FC<RecordCardProps> = ({
         </CardBody>
         <CardFooter className="block">
           <h4 className="text-lg text-black">
-            {album.length > 32 ? album.substring(0, 32) + '...' : album}
+            {album.length > 28 ? album.substring(0, 28) + '...' : album}
           </h4>
           <h5 className="text-base text-gray-600">{artist}</h5>
           <p className="text-base text-black">${price}</p>
