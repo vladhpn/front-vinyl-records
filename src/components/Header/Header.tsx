@@ -11,12 +11,15 @@ import {
 
 import { Link } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
 import { CustomModal } from '../CustomModal';
+import LangSelector from '../LangSelector/LangSelector';
 import { Logo } from '../Logo';
 import { FilterIcon, SearchIcon, UserIcon } from '../iconComponents';
 
 export const Header = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { t } = useTranslation();
 
   return (
     <div className="container fixed left-0 right-0 z-20 h-20 bg-white py-5 ">
@@ -42,10 +45,11 @@ export const Header = () => {
               innerWrapper: 'text-textColor',
               inputWrapper: ['shadow-md'],
             }}
-            placeholder="Type to search..."
+            placeholder={t('main search')}
           />
         </div>
-        <div className="flex w-36 items-center justify-end gap-x-1">
+        <div className="flex w-56 items-center justify-end gap-x-5">
+          <LangSelector />
           <CustomModal isOpen={isOpen} onOpenChange={onOpenChange} />
           <Button
             onPress={onOpen}
@@ -68,12 +72,12 @@ export const Header = () => {
             <DropdownMenu aria-label="Link Actions">
               <DropdownItem textValue="Register">
                 <Link className="block" to="/register">
-                  Register
+                  {t('user dropdown register')}
                 </Link>
               </DropdownItem>
               <DropdownItem textValue="Login">
                 <Link className="block" to="/login">
-                  Login
+                  {t('user dropdown login')}
                 </Link>
               </DropdownItem>
             </DropdownMenu>

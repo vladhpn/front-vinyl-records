@@ -1,10 +1,12 @@
 import { Button, Input, Link } from '@nextui-org/react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { PasswordInput } from '../../components';
 import { useInput } from '../../hooks';
 
 export const RegistrationPage = () => {
+  const { t } = useTranslation();
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const navigate = useNavigate();
 
@@ -38,16 +40,18 @@ export const RegistrationPage = () => {
     <div className="font-serif flex h-screen">
       <div className="h-screen w-3/6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
       <div className="flex w-3/6 flex-col justify-center px-44">
-        <h2 className="mb-5 text-3xl font-bold">Create an account</h2>
+        <h2 className="mb-5 text-3xl font-bold">
+          {t('registration page title')}
+        </h2>
 
         <Input
           value={name.value}
           type="email"
-          label={name.label}
+          label={t('input label name')}
           variant="bordered"
           isInvalid={name.isDirty && name.isEmpty}
           color={name.isDirty && name.isEmpty ? 'danger' : 'success'}
-          errorMessage={name.isDirty && name.isEmpty && 'Minimum 3 symbols'}
+          errorMessage={name.isDirty && name.isEmpty && t('error name message')}
           onValueChange={(e) => name.onChange(e)}
           onBlur={(e) => name.onBlur(e)}
           className="mb-5"
@@ -56,11 +60,11 @@ export const RegistrationPage = () => {
         <Input
           value={email.value}
           type="email"
-          label={email.label}
+          label={t('input label email')}
           variant="bordered"
           isInvalid={isEmailValid}
           color={isEmailValid ? 'danger' : 'success'}
-          errorMessage={isEmailValid && 'Please enter a valid email'}
+          errorMessage={isEmailValid && t('error email message')}
           onValueChange={(e) => email.onChange(e)}
           onBlur={(e) => email.onBlur(e)}
           className="mb-5"
@@ -80,15 +84,15 @@ export const RegistrationPage = () => {
             variant="ghost"
             type="submit"
             onClick={onSubmit}>
-            Create an account
+            {t('create account button')}
           </Button>
 
           <Button color="primary" variant="solid" onClick={() => navigate('/')}>
-            To main
+            {t('to main button')}
           </Button>
         </div>
         <Link className="mt-4" href="/login">
-          I have an account
+          {t('have account link')}
         </Link>
       </div>
     </div>

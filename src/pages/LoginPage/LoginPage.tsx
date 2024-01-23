@@ -1,10 +1,12 @@
 import { Button, Input, Link } from '@nextui-org/react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { PasswordInput } from '../../components';
 import { useInput } from '../../hooks';
 
 export const LoginPage = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -34,15 +36,15 @@ export const LoginPage = () => {
     <div className="font-serif flex h-screen">
       <div className="h-screen w-3/6 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
       <div className="flex w-3/6 flex-col justify-center px-44">
-        <h2 className="mb-5 text-3xl font-bold">Login in</h2>
+        <h2 className="mb-5 text-3xl font-bold">{t('login page title')}</h2>
         <Input
           value={email.value}
           type="email"
-          label={email.label}
+          label={t('input label email')}
           variant="bordered"
           isInvalid={isEmailValid}
           color={isEmailValid ? 'danger' : 'success'}
-          errorMessage={isEmailValid && 'Please enter a valid email'}
+          errorMessage={isEmailValid && t('error email message')}
           onValueChange={(e) => email.onChange(e)}
           onBlur={(e) => email.onBlur(e)}
           className="mb-5"
@@ -61,14 +63,14 @@ export const LoginPage = () => {
             variant="ghost"
             type="submit"
             onClick={onSubmit}>
-            Login
+            {t('login button')}
           </Button>
           <Button color="primary" variant="solid" onClick={() => navigate('/')}>
-            To main
+            {t('to main button')}
           </Button>
         </div>
         <Link className="mt-4" href="/register">
-          I don't have an account
+          {t('do not have account link')}
         </Link>
       </div>
     </div>
