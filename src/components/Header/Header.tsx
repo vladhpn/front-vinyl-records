@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 import { CustomModal } from '../CustomModal';
-import LangSelector from '../LangSelector/LangSelector';
+import { LangSelector } from '../LangSelector';
 import { Logo } from '../Logo';
 import { FilterIcon, SearchIcon, UserIcon } from '../iconComponents';
 

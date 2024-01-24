@@ -16,7 +16,7 @@ export const useInput = (
   }, []);
 
   const onBlur = (
-    e:
+    _e:
       | React.FocusEvent<HTMLInputElement, Element>
       | React.FocusEvent<Element, Element>,
   ) => {
