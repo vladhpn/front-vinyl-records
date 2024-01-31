@@ -36,15 +36,15 @@ export const LoginPage = () => {
     <div className="font-serif flex h-screen">
       <div className="h-screen w-3/6 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
       <div className="flex w-3/6 flex-col justify-center px-44">
-        <h2 className="mb-5 text-3xl font-bold">{t('login page title')}</h2>
+        <h2 className="mb-5 text-3xl font-bold">{t('loginPage.entry')}</h2>
         <Input
           value={email.value}
           type="email"
-          label={t('input label email')}
+          label={t('authInput.name')}
           variant="bordered"
           isInvalid={isEmailValid}
           color={isEmailValid ? 'danger' : 'success'}
-          errorMessage={isEmailValid && t('error email message')}
+          errorMessage={isEmailValid && t('authInput.errorName')}
           onValueChange={(e) => email.onChange(e)}
           onBlur={(e) => email.onBlur(e)}
           className="mb-5"
@@ -63,14 +63,14 @@ export const LoginPage = () => {
             variant="ghost"
             type="submit"
             onClick={onSubmit}>
-            {t('login button')}
+            {t('button.login')}
           </Button>
           <Button color="primary" variant="solid" onClick={() => navigate('/')}>
-            {t('to main button')}
+            {t('button.toMain')}
           </Button>
         </div>
         <Link className="mt-4" href="/register">
-          {t('do not have account link')}
+          {t('loginPage.noAccountLink')}
         </Link>
       </div>
     </div>

@@ -14,7 +14,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({
   return (
     <Input
       value={props.value}
-      label={t('input label password')}
+      label={t('authInput.password')}
       variant="bordered"
       isInvalid={
         (props.isDirty && props.isEmpty) || (props.isDirty && props.minLength)
@@ -26,7 +26,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({
       }
       errorMessage={
         (props.isDirty && props.isEmpty) || (props.isDirty && props.minLength)
-          ? t('error password message')
+          ? t('authInput.errorPassword')
           : ''
       }
       onValueChange={(e) => props.onChange(e)}

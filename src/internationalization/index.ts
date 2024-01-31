@@ -2,9 +2,9 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import { LOCALS } from './constants';
-import { en } from './copies/en';
-import { pt } from './copies/pt';
-import { ua } from './copies/ua';
+import en from './translations/en.json';
+import pt from './translations/pt.json';
+import ua from './translations/ua.json';
 
 const resources = {
   [LOCALS.EN]: {

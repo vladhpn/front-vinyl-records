@@ -45,7 +45,7 @@ export const Header = () => {
               innerWrapper: 'text-textColor',
               inputWrapper: ['shadow-md'],
             }}
-            placeholder={t('main search')}
+            placeholder={t('mainPage.searchPlaceholder')}
           />
         </div>
         <div className="flex w-56 items-center justify-end gap-x-5">
@@ -72,12 +72,12 @@ export const Header = () => {
             <DropdownMenu aria-label="Link Actions">
               <DropdownItem textValue="Register">
                 <Link className="block" to="/register">
-                  {t('user dropdown register')}
+                  {t('userMenu.register')}
                 </Link>
               </DropdownItem>
               <DropdownItem textValue="Login">
                 <Link className="block" to="/login">
-                  {t('user dropdown login')}
+                  {t('userMenu.login')}
                 </Link>
               </DropdownItem>
             </DropdownMenu>

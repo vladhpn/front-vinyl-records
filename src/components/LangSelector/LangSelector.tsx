@@ -2,31 +2,8 @@ import { Select, SelectItem } from '@nextui-org/react';
 import i18next from 'i18next';
 import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { EnIcon, PtIcon, UaIcon } from '../../components/iconComponents';
-import { LOCALS } from '../../i18n/constants';
-
-type LanguagesType = {
-  id: string;
-  value: string;
-  icon: JSX.Element;
-};
-
-const languages: LanguagesType[] = [
-  {
-    id: 'en',
-    value: 'en',
-    icon: <EnIcon />,
-  },
-  {
-    id: 'pt',
-    value: 'pt',
-    icon: <PtIcon />,
-  },
-  {
-    id: 'ua',
-    value: 'ua',
-    icon: <UaIcon />,
-  },
-];
+import { LOCALS } from '../../internationalization/constants';
+import { languages } from '../../internationalization/languages';
 
 export const LangSelector = () => {
   const [language, setLanguage] = useState(i18next.language);
@@ -72,10 +49,10 @@ export const LangSelector = () => {
       placeholder={i18next.language}
       startContent={renderLangIcon}
       onChange={(e) => handleChangeLanguage(e)}>
-      {languages.map((item) => {
+      {languages.map(({ value, id, icon }) => {
         return (
-          <SelectItem textValue={item.value} key={item.id}>
-            {item.icon}
+          <SelectItem textValue={value} key={id}>
+            {icon}
           </SelectItem>
         );
       })}
