@@ -1,5 +1,6 @@
 import { Input } from '@nextui-org/react';
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { EyeFilledIcon, EyeSlashFilledIcon } from '../iconComponents';
 import { PasswordInputProps } from './type';
 
@@ -8,10 +9,12 @@ export const PasswordInput: FC<PasswordInputProps> = ({
   toggleVisibility,
   props,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <Input
       value={props.value}
-      label={props.label}
+      label={t('authInput.password')}
       variant="bordered"
       isInvalid={
         (props.isDirty && props.isEmpty) || (props.isDirty && props.minLength)
@@ -23,7 +26,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({
       }
       errorMessage={
         (props.isDirty && props.isEmpty) || (props.isDirty && props.minLength)
-          ? 'Min length 5 symbols'
+          ? t('authInput.errorPassword')
           : ''
       }
       onValueChange={(e) => props.onChange(e)}

@@ -4,8 +4,10 @@ import { useParams } from 'react-router-dom';
 import { allCardsList } from '../../utils/mocData/allCardsList';
 import { NotFoundPage } from '../NotFoundPage';
 import { DetailsCard } from './types';
+import { useTranslation } from 'react-i18next';
 
 export const DetailsCardPage = () => {
+    const { t } = useTranslation();
   const { id } = useParams();
   const [card, setCard] = useState<DetailsCard | null>(null);
 
@@ -102,7 +104,7 @@ export const DetailsCardPage = () => {
           <p className="text-gray-500">{card.description}</p>
         </div>
         <div>
-          <Button color="primary">Contact seller</Button>
+          <Button color="primary">{t('button.contact')}</Button>
         </div>
       </div>
     </div>

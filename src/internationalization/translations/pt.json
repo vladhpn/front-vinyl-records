@@ -1,0 +1,39 @@
+{
+  "loginPage": {
+    "entry": "Entrar",
+    "noAccountLink": "Eu nao tenho conta"
+
+  },
+  "registrationPage": {
+    "entry": "Criar conta",
+    "haveAccountLink": "Eu tenho conta"
+
+  },
+  "mainPage": {
+    "searchPlaceholder": "Procurar"
+
+  },
+  "userMenu": {
+    "register": "Registar",
+    "login": "Iniciar Sessão"
+
+  },
+  "button": {
+    "toMain": "Para principal",
+    "login": "Entrar",
+    "createAccount" : "Criar",
+    "contact": "Contactar vendedor"
+  },
+
+  "authInput": {
+    "name": "Nome",
+    "errorName": "Mínimo 3 símbolos",
+    "email": "Email",
+    "errorEmail": "Por favor digite um email válido",
+    "password": "Senha",
+    "errorPassword": "Mínimo 5 símbolos"
+
+  }
+
+}
+

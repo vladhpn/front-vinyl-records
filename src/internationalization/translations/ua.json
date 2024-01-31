@@ -1,0 +1,38 @@
+{
+  "loginPage": {
+    "entry": "Логін",
+    "noAccountLink": "Я не маю аккаунта"
+
+  },
+  "registrationPage": {
+    "entry": "Створити аккаунт",
+    "haveAccountLink": "Я вже маю аккаунт"
+
+  },
+  "mainPage": {
+    "searchPlaceholder": "Пошук"
+
+  },
+  "userMenu": {
+    "register": "Реєстрація",
+    "login": "Логін"
+
+  },
+  "button": {
+    "toMain": "На головну",
+    "login": "Логін",
+    "createAccount" : "Створити аккаунт",
+    "contact": "Написати продавцю"
+  },
+
+  "authInput": {
+    "name": "Ім'я",
+    "errorName": "Мінімум 3 символи",
+    "email": "Email",
+    "errorEmail": "Введіть валідний email",
+    "password": "Пароль",
+    "errorPassword": "Мінімум 5 символів"
+
+  }
+
+}

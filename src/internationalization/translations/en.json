@@ -1,0 +1,38 @@
+{
+  "loginPage": {
+    "entry": "Login",
+    "noAccountLink": "I don't have an account"
+
+  },
+  "registrationPage": {
+    "entry": "Create an account",
+    "haveAccountLink": "I have an account"
+
+  },
+  "mainPage": {
+    "searchPlaceholder": "Search"
+
+  },
+  "userMenu": {
+    "register": "Register",
+    "login": "Login"
+
+  },
+  "button": {
+    "toMain": "To main",
+    "login": "Login",
+    "createAccount" : "Create an account",
+    "contact": "Contact seller"
+  },
+
+  "authInput": {
+    "name": "Name",
+    "errorName": "Minimum 3 symbols",
+    "email": "Email",
+    "errorEmail": "Please enter a valid email",
+    "password": "Password",
+    "errorPassword": "Minimum 5 symbols"
+
+  }
+
+}
